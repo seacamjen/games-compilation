@@ -9,12 +9,14 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { RunnerComponent } from './runner/runner.component';
 import { HomeComponent } from './home/home.component';
+import { SlidePuzzleComponent } from './slide-puzzle/slide-puzzle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RunnerComponent,
-    HomeComponent
+    HomeComponent,
+    SlidePuzzleComponent
   ],
   imports: [
     BrowserModule,
