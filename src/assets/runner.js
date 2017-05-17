@@ -23,7 +23,7 @@ var rightArrow = false;
 var upArrow = false;
 var downArrow = false;
 
-function init() {
+function runnerinit() {
   stage = new createjs.Stage("demoCanvas");
 
   character = new Image();
