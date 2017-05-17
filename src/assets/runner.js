@@ -183,8 +183,8 @@ function keyUpHandler(e) {
 function move() {
   if(rightArrow) bitmap.x += 5;
   if(leftArrow) bitmap.x -= 5;
-  // if(upArrow) bitmap.y -= 5;
-  if(upArrow) jump();
-  // if(downArrow) bitmap.y += 5;
+  if(upArrow) bitmap.y -= 5;
+  // if(upArrow) jump();
+  if(downArrow) bitmap.y += 5;
   stage.update();
 }

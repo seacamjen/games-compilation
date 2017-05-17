@@ -1,0 +1,3 @@
+#runner:hover, #puzzle:hover, #tunnel:hover {
+  border-style: dashed;
+}
