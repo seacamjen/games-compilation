@@ -11,7 +11,8 @@ var appleImg;
 var apple;
 var appleWidth = 48;
 var appleHeight = 50;
-var ground;
+var background;
+var backgroundImg;
 
 var KEYCODE_UP = 38;
 var KEYCODE_LEFT = 37;
@@ -24,15 +25,6 @@ var downArrow = false;
 
 function init() {
   stage = new createjs.Stage("demoCanvas");
-
-  // manifest = [
-  //     {src: "catboy.png", id: "character"},
-  //     {src: "stickeysplat.jpg", id: "splat"}
-  // ];
-  //
-  // loader = new createjs.LoadQueue(false);
-  // loader.addEventListener("complete", handleComplete);
-  // loader.loadManifest(manifest, true, "assets/");
 
   character = new Image();
   character.src = "assets/catboy.png";
@@ -52,19 +44,16 @@ function init() {
   apple.x = 1000;
   apple.y = 300;
 
-  // var groundImg = new Image();
-  // groundImg.src = "assets/platform.jpg";
-  // ground = new createjs.Shape();
-  // ground.graphics.beginFill(groundImg).drawRect(0, 0, 2000, 98);
-  // ground.tileW = 100;
-  // ground.y = 502;
+  backgroundImg = new Image();
+  backgroundImg.src = "assets/background_pjmasks.jpg";
+  background = new createjs.Bitmap(backgroundImg);
 
-  playerScore = new createjs.Text('0', 'bold 20px Arial', '#f90014');
-  playerScore.x = 500;
-  playerScore.y = 100;
-  playerScore.addEventListener("click", thing);
 
-  stage.addChild(splat, apple, bitmap, playerScore, ground);
+  playerScore = new createjs.Text('0', 'bold 60px Arial', '#f90014');
+  playerScore.x = 800;
+  playerScore.y = 0;
+
+  stage.addChild(background, splat, apple, bitmap, playerScore);
   stage.update();
 
   createjs.Ticker.setFPS(80);
@@ -74,29 +63,7 @@ function init() {
   window.onkeydown = keyDownHandler;
 }
 
-function thing() {
-  alert ("yeah");
-}
 
-// function handleComplete() {
-//   bitmap = new createjs.Bitmap(loader.getItem("character"));
-//   bitmap.x = 0;
-//   bitmap.y = 350;
-//
-//   splat = new createjs.Bitmap(loader.getItem("splat"));
-//   splat.x = 1000;
-//   splat.y = 500;
-//
-//   playerScore = new createjs.Text('0', 'bold 20px Arial', '#f90014');
-//   playerScore.x = 500;
-//   playerScore.y = 100;
-//
-//   stage.addChild(splat, bitmap, playerScore);
-//   stage.update();
-//
-//   createjs.Ticker.setFPS(80);
-//   createjs.Ticker.addEventListener("tick", tick);
-// }
 
 function tick() {
   splat.x -= Math.random() * (4) + 1;
@@ -146,10 +113,34 @@ function tick() {
     stage.update();
   }
 
-  if(playerScore.text > 300) {
-
+  if(playerScore.text > 100) {
+    winner();
   }
 
+  if(playerScore.text < -500) {
+    loser();
+  }
+
+}
+
+function winner() {
+  stage.removeAllChildren();
+  stage.update();
+  var win = new createjs.Text('Winner', 'bold 60px Arial', '#f90014');
+  win.x = 400;
+  win.y = 300;
+  stage.addChild(win);
+  stage.update();
+}
+
+function loser() {
+  stage.removeAllChildren();
+  stage.update();
+  var lose = new createjs.Text('Try Again', 'bold 60px Arial', '#f90014');
+  lose.x = 400;
+  lose.y = 300;
+  stage.addChild(lose);
+  stage.update();
 }
 
 function jump() {
