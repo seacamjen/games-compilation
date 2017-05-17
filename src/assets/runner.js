@@ -67,9 +67,6 @@ function runnerinit() {
   stage.addChild(catboyText, owletteText, gekkoText);
   stage.update();
 
-  // createjs.Ticker.setFPS(80);
-  // createjs.Ticker.addEventListener("tick", tick);
-
   window.onkeyup = keyUpHandler;
   window.onkeydown = keyDownHandler;
 }
