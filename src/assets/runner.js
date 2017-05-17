@@ -62,6 +62,7 @@ function init() {
   playerScore = new createjs.Text('0', 'bold 20px Arial', '#f90014');
   playerScore.x = 500;
   playerScore.y = 100;
+  playerScore.addEventListener("click", thing);
 
   stage.addChild(splat, apple, bitmap, playerScore, ground);
   stage.update();
@@ -71,6 +72,10 @@ function init() {
 
   window.onkeyup = keyUpHandler;
   window.onkeydown = keyDownHandler;
+}
+
+function thing() {
+  alert ("yeah");
 }
 
 // function handleComplete() {
