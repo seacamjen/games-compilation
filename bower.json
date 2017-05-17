@@ -3,7 +3,8 @@
   "description": "",
   "main": "",
   "authors": [
-    "Cameron Jensen <jensenseanc@gmail.com>"
+    "Cameron Jensen <jensenseanc@gmail.com>",
+    "Nathaniel Meyer <nathanielimeyer@gmail.com>"
   ],
   "license": "MIT",
   "homepage": "",
@@ -13,5 +14,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "EaselJS": "^0.8.2",
+    "TweenJS": "^0.6.2"
+  }
 }
