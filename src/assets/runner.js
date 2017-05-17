@@ -50,7 +50,7 @@ function runnerinit() {
 
   catboyText = new createjs.Text('Catboy', 'bold 60px Arial', '#f90014');
   catboyText.x = 400;
-  catboyText.y = 0;
+  catboyText.y = 100;
   catboyText.addEventListener("click", addCatboy);
 
   owletteText = new createjs.Text('Owlette', 'bold 60px Arial', '#f90014');
@@ -172,7 +172,7 @@ function tick() {
     stage.update();
   }
 
-  if(playerScore.text > 2000) {
+  if(playerScore.text > 100) {
     winner();
   }
 
