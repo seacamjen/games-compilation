@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RunnerComponent } from './runner/runner.component';
 import { SlidePuzzleComponent } from './slide-puzzle/slide-puzzle.component';
+import { WebcrawlerComponent } from './webcrawler/webcrawler.component';
 
 const appRoutes: Routes = [
   {
@@ -16,6 +17,10 @@ const appRoutes: Routes = [
   {
     path: 'slide-puzzle',
     component: SlidePuzzleComponent
+  },
+  {
+    path: 'webcrawler',
+    component: WebcrawlerComponent
   }
 ];
 

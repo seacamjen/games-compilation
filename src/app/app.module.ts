@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { RunnerComponent } from './runner/runner.component';
 import { HomeComponent } from './home/home.component';
 import { SlidePuzzleComponent } from './slide-puzzle/slide-puzzle.component';
+import { WebcrawlerComponent } from './webcrawler/webcrawler.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RunnerComponent,
     HomeComponent,
-    SlidePuzzleComponent
+    SlidePuzzleComponent,
+    WebcrawlerComponent
   ],
   imports: [
     BrowserModule,
