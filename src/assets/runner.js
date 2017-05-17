@@ -1,35 +1,6 @@
-var stage;
-var character;
-var catboy;
-var catboyImg;
-var gekko;
-var gekkoImg;
-var owlette;
-var owletteImg;
-var bitmap;
-var bitWidth = 107;
-var bitHeight = 200;
-var splatImg;
-var splat;
-var splatWidth = 50;
-var splatHeight = 47;
-var appleImg;
-var apple;
-var appleWidth = 48;
-var appleHeight = 50;
-var background;
-var backgroundImg;
-var backgroundWin;
-var backgroundWinImg;
+var stage, character, catboy, catboyImg, gekko, gekkoImg, owlette, owletteImg, bitmap, bitWidth, bitHeight, splatImg, splat, splatWidth = 50, splatHeight = 47, appleImg, apple, appleWidth = 48, appleHeight = 50, background, backgroundImg, backgroundWin, backgroundWinImg;
 
-var KEYCODE_UP = 38;
-var KEYCODE_LEFT = 37;
-var KEYCODE_RIGHT = 39;
-var KEYCODE_DOWN = 40;
-var leftArrow = false;
-var rightArrow = false;
-var upArrow = false;
-var downArrow = false;
+var KEYCODE_UP = 38, KEYCODE_LEFT = 37, KEYCODE_RIGHT = 39, KEYCODE_DOWN = 40, leftArrow = false, rightArrow = false, upArrow = false, downArrow = false;
 
 function runnerinit() {
   stage = new createjs.Stage("demoCanvas");
