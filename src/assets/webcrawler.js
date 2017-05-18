@@ -48,10 +48,10 @@ function webcrawlerInit() {
   }
 
   function move() {
-    if(rightArrow) ship.x += 5;
-    if(leftArrow) ship.x -= 5;
-    if(upArrow) ship.y -= 5;
-    if(downArrow) ship.y += 5;
+    if(rightArrow) ship.rotation += 5;
+    if(leftArrow)  ship.rotation -= 5;
+    // if(upArrow) ship.y -= 5;
+    // if(downArrow) ship.y += 5;
     stage.update();
   }
 
@@ -103,24 +103,23 @@ function webcrawlerInit() {
   function tick(event) {
     growRadius();
     move();
-    faceCenter();
+    // faceCenter();
     // ship.rotation++;
     stage.update();
   }
 
-  function faceCenter() {
-    var angle = Math.atan2(450 - ship.y, 450 - ship.x );
-        angle = angle * (180/Math.PI);
-
-        if(angle < 0)
-        {
-            angle = 360 - (-angle);
-        }
-
-        ship.rotation = 90 + angle;
-
-        stage.update();
-  }
+  // function faceCenter() {
+  //   var angle = Math.atan2(450 - ship.y, 450 - ship.x );
+  //       angle = angle * (180/Math.PI);
+  //
+  //       if(angle < 0) {
+  //           angle = 360 - (-angle);
+  //       }
+  //
+  //       ship.rotation = 90 + angle;
+  //
+  //       stage.update();
+  // }
 
 
 }
