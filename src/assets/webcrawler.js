@@ -110,23 +110,8 @@ function webcrawlerInit() {
   function tick(event) {
     growRadius();
     move();
-    // faceCenter();
     // ship.rotation++;
     stage.update();
   }
-
-  // function faceCenter() {
-  //   var angle = Math.atan2(450 - ship.y, 450 - ship.x );
-  //       angle = angle * (180/Math.PI);
-  //
-  //       if(angle < 0) {
-  //           angle = 360 - (-angle);
-  //       }
-  //
-  //       ship.rotation = 90 + angle;
-  //
-  //       stage.update();
-  // }
-
 
 }
