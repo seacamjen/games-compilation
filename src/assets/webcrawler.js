@@ -6,6 +6,13 @@ function webcrawlerInit() {
   createjs.Ticker.addEventListener("tick", tick);
   this.circleList = [];
   drawGrid();
+
+  var fireballImg = new Image();
+  fireballImg.src = "assets/fireball.png";
+  var fireball = new createjs.Bitmap(fireballImg);
+  fireball.x = 443;
+  fireball.y = 443;
+
   var shipGraphics = new createjs.Graphics().beginStroke("#FFFFFF").beginFill("#FFFFFF").moveTo(450, 20).lineTo(460, -12).lineTo(450, -4).lineTo(440, -12).closePath();
   var ship = new createjs.Shape(shipGraphics);
   ship.x = canvas.width/2;
@@ -13,7 +20,7 @@ function webcrawlerInit() {
   ship.regX = canvas.width/2;
   ship.regY = canvas.height/2;
   ship.rotation = 45;
-  stage.addChild(ship);
+  stage.addChild(ship, fireball);
   stage.update();
   drawCircle();
 
@@ -103,6 +110,12 @@ function webcrawlerInit() {
   function tick(event) {
     growRadius();
     move();
+    fireball.x += Math.random() * (9) + 1;
+    fireball.y += Math.random() * (9) + 1;
+    if (fireball.x > 900 || fireball.x < 0 || fireball.y < 0 || fireball.y > 900) {
+      fireball.x = 443;
+      fireball.y = 443;
+    }
     // faceCenter();
     // ship.rotation++;
     stage.update();
