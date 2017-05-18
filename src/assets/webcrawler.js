@@ -61,7 +61,7 @@ function webcrawlerInit() {
   function move() {
     if(rightArrow) ship.rotation += 5;
     if(leftArrow)  ship.rotation -= 5;
-    if(spaceBar) fireBullet;
+    // if(spaceBar) fireBullet;
     // if(upArrow) ship.y -= 5;
     // if(downArrow) ship.y += 5;
     stage.update();

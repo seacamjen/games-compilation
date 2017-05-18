@@ -38,26 +38,27 @@
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-danger">
         <h2 class="center">Create Circles</h2>
-        <p>
-          In order to create a circle the Shape Object is used.
-        </p>
+        <p>It is not possible to manipulate vector graphics in the canvas directly. In order to reposition a graphics object, animate it, etc. it must be the property of a Shape object on the stage.</p>
+        <p>Two methods exist for creating a graphics object as a property of a shape. You must either instantiate a shape and then manipulate its graphics property, or instantiate a graphics object and pass it as an argument when you instantiate a shape.</p>
+        <p>Here we instantiate shapes and then manipulate their graphics property.</p>
         <img src="./assets/images/drawCircle.png" alt="Code Snippet of Collision" />
       </div>
     </div>
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-danger">
         <h2 class="center">Draw Grid</h2>
-        <p>
-          The grid is drawn using multiple lt and mt functions.
-        </p>
+        <p>The graphics class includes a mini api with abbreviated method names. "moveTo" = "mt", "lineTo" = "lt", etc.</p>
         <img src="./assets/images/drawGrid.png" alt="Code Snippet of image import" />
+        <p>Every graphics class call returns the graphics instance, so multiple api calls can be chained to create a vector graphics object like so:</p>
+        <img src="./assets/ship.png" alt="Code Snippet of image import" />
+        <p>Here the alternate method of instantiating a graphics object and then passing it as an argument during Shape instantiation is also shown.</p>
       </div>
     </div>
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-danger">
         <h2 class="center">Grow Circles</h2>
         <p>
-          The circles grow in radius as they move out by 101%
+          The circles grow in radius as they move out by 101%. Once the newest circle reaches a radius of 30 another is added. They are destroyed as they reach the edge of the canvas.
         </p>
         <img src="./assets/images/growRadius.png" alt="Code Snippet of text import" />
       </div>
