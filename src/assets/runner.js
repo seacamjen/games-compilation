@@ -172,7 +172,7 @@ function tick() {
     stage.update();
   }
 
-  if(playerScore.text > 100) {
+  if(playerScore.text > 2000) {
     winner();
   }
 
