@@ -24,13 +24,13 @@ function webcrawlerInit() {
   stage.update();
   drawCircle();
 
-  var KEYCODE_UP = 38;
-  var KEYCODE_LEFT = 37
-  var KEYCODE_RIGHT = 39
-  var KEYCODE_DOWN = 40
-  var leftArrow = false
-  var rightArrow = false
-  var upArrow = false
+  var KEYCODE_UP = 87;
+  var KEYCODE_LEFT = 65;
+  var KEYCODE_RIGHT = 68;
+  var KEYCODE_DOWN = 83;
+  var leftArrow = false;
+  var rightArrow = false;
+  var upArrow = false;
   var downArrow = false;
 
   window.onkeyup = keyUpHandler;
@@ -110,12 +110,6 @@ function webcrawlerInit() {
   function tick(event) {
     growRadius();
     move();
-    fireball.x += Math.random() * (9) + 1;
-    fireball.y += Math.random() * (9) + 1;
-    if (fireball.x > 900 || fireball.x < 0 || fireball.y < 0 || fireball.y > 900) {
-      fireball.x = 443;
-      fireball.y = 443;
-    }
     // faceCenter();
     // ship.rotation++;
     stage.update();
