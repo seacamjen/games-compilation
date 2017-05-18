@@ -28,6 +28,8 @@ function webcrawlerInit() {
   var KEYCODE_LEFT = 65;
   var KEYCODE_RIGHT = 68;
   var KEYCODE_DOWN = 83;
+  var KEYCODE_SPACE = 32;
+  var spaceBar = false;
   var leftArrow = false;
   var rightArrow = false;
   var upArrow = false;
@@ -42,6 +44,7 @@ function webcrawlerInit() {
       case KEYCODE_LEFT: leftArrow = true; break;
       case KEYCODE_UP: upArrow = true; break;
       case KEYCODE_DOWN: downArrow = true; break;
+      case KEYCODE_SPACE: spaceBar = true; break;
     }
   }
 
@@ -51,12 +54,14 @@ function webcrawlerInit() {
       case KEYCODE_LEFT: leftArrow = false; break;
       case KEYCODE_UP: upArrow = false; break;
       case KEYCODE_DOWN: downArrow = false; break;
+      case KEYCODE_SPACE: spaceBar = false; break;
     }
   }
 
   function move() {
     if(rightArrow) ship.rotation += 5;
     if(leftArrow)  ship.rotation -= 5;
+    if(spaceBar) fireBullet;
     // if(upArrow) ship.y -= 5;
     // if(downArrow) ship.y += 5;
     stage.update();
@@ -110,6 +115,7 @@ function webcrawlerInit() {
   function tick(event) {
     growRadius();
     move();
+    fireball.x += 5;
     // faceCenter();
     // ship.rotation++;
     stage.update();

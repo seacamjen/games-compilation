@@ -1,38 +1,37 @@
-var stage;
-var character;
-var catboy;
-var catboyImg;
-var gekko;
-var gekkoImg;
-var owlette;
-var owletteImg;
-var bitmap;
-var bitWidth;
-var bitHeight;
-var splatImg;
-var splat;
-var splatWidth = 50;
-var splatHeight = 47;
-var appleImg;
-var apple;
-var appleWidth = 48;
-var appleHeight = 50;
-var background;
-var backgroundImg;
-var backgroundWin;
-var backgroundWinImg;
-
-var KEYCODE_UP = 38;
-var KEYCODE_LEFT = 37;
-var  KEYCODE_RIGHT = 39;
-var KEYCODE_DOWN = 40;
-var leftArrow = false;
-var rightArrow = false;
-var upArrow = false;
-var downArrow = false;
-
-
 function runnerinit() {
+  var stage;
+  var character;
+  var catboy;
+  var catboyImg;
+  var gekko;
+  var gekkoImg;
+  var owlette;
+  var owletteImg;
+  var bitmap;
+  var bitWidth;
+  var bitHeight;
+  var splatImg;
+  var splat;
+  var splatWidth = 50;
+  var splatHeight = 47;
+  var appleImg;
+  var apple;
+  var appleWidth = 48;
+  var appleHeight = 50;
+  var background;
+  var backgroundImg;
+  var backgroundWin;
+  var backgroundWinImg;
+
+  var KEYCODE_UP = 38;
+  var KEYCODE_LEFT = 37;
+  var  KEYCODE_RIGHT = 39;
+  var KEYCODE_DOWN = 40;
+  var leftArrow = false;
+  var rightArrow = false;
+  var upArrow = false;
+  var downArrow = false;
+
   stage = new createjs.Stage("demoCanvas");
 
   catboyImg = new Image();
@@ -98,167 +97,167 @@ function runnerinit() {
 
   window.onkeyup = keyUpHandler;
   window.onkeydown = keyDownHandler;
-}
 
-function addCatboy() {
-  stage.removeChild(catboyText, owletteText, gekkoText);
-  bitmap = new createjs.Bitmap(catboyImg);
-  bitmap.x = 0;
-  bitmap.y = 350;
-  bitWidth = 107;
-  bitHeight = 200;
-
-  stage.addChild(background, splat, apple, bitmap, playerScore)
-  stage.update();
-
-  createjs.Ticker.setFPS(80);
-  createjs.Ticker.addEventListener("tick", tick);
-}
-
-function addOwlette() {
-  stage.removeChild(catboyText, owletteText, gekkoText);
-  bitmap = new createjs.Bitmap(owletteImg);
-  bitmap.x = 0;
-  bitmap.y = 350;
-  bitWidth = 186;
-  bitHeight = 200;
-
-  stage.addChild(background, splat, apple, bitmap, playerScore)
-  stage.update();
-
-  createjs.Ticker.setFPS(80);
-  createjs.Ticker.addEventListener("tick", tick);
-}
-
-function addGekko() {
-  stage.removeChild(catboyText, owletteText, gekkoText);
-  bitmap = new createjs.Bitmap(gekkoImg);
-  bitmap.x = 0;
-  bitmap.y = 350;
-  bitWidth = 120;
-  bitHeight = 200;
-
-  stage.addChild(background, splat, apple, bitmap, playerScore)
-  stage.update();
-
-  createjs.Ticker.setFPS(80);
-  createjs.Ticker.addEventListener("tick", tick);
-}
-
-function tick() {
-  if (playerScore.text < 1500) {
-    splat.x -= Math.random() * (4) + 1;
-  } else {
-    splat.x -= Math.random() * (10) + 5;
-  }
-  apple.x -= Math.random() * (4) + 1;
-  bitmap.x += 1;
-  move();
-  if (bitmap.x > 900) {
-    bitmap.x = -59;
-    bitmap.y = 250;
-  }
-  if (bitmap.x < -100) {
-    bitmap.x = -59;
-    bitmap.y;
-  }
-  if (bitmap.y > 600) {
+  function addCatboy() {
+    stage.removeChild(catboyText, owletteText, gekkoText);
+    bitmap = new createjs.Bitmap(catboyImg);
     bitmap.x = 0;
-    bitmap.y = 250;
-  }
-  if (bitmap.y < -200) {
-    bitmap.x = 0;
-    bitmap.y = 250;
-  }
-  if (splat.x > 1000) {
-    splat.x = 1000;
-    splat.y = Math.random() * (300) + 200;
-  }
-  if (splat.x < -20) {
-    splat.x = 1000;
-    splat.y = Math.random() * (300) + 200;
-  }
-  if (apple.x > 1000) {
-    apple.x = 1000;
-    apple.y = Math.random() * (300) + 200;
-  }
-  if (apple.x < -20) {
-    apple.x = 1000;
-    apple.y = Math.random() * (300) + 200;
+    bitmap.y = 350;
+    bitWidth = 107;
+    bitHeight = 200;
+
+    stage.addChild(background, splat, apple, bitmap, playerScore)
+    stage.update();
+
+    createjs.Ticker.setFPS(80);
+    createjs.Ticker.addEventListener("tick", tick);
   }
 
-  if (splat.x < bitmap.x + bitWidth && splat.x + splatWidth > bitmap.x && splat.y < bitmap.y + bitHeight && splat.y + splatHeight > bitmap.y) {
-    splat.x = 1000;
-    splat.y = Math.random() * (300) + 200;
-    playerScore.text = parseInt(playerScore.text - 100);
+  function addOwlette() {
+    stage.removeChild(catboyText, owletteText, gekkoText);
+    bitmap = new createjs.Bitmap(owletteImg);
+    bitmap.x = 0;
+    bitmap.y = 350;
+    bitWidth = 186;
+    bitHeight = 200;
+
+    stage.addChild(background, splat, apple, bitmap, playerScore)
+    stage.update();
+
+    createjs.Ticker.setFPS(80);
+    createjs.Ticker.addEventListener("tick", tick);
+  }
+
+  function addGekko() {
+    stage.removeChild(catboyText, owletteText, gekkoText);
+    bitmap = new createjs.Bitmap(gekkoImg);
+    bitmap.x = 0;
+    bitmap.y = 350;
+    bitWidth = 120;
+    bitHeight = 200;
+
+    stage.addChild(background, splat, apple, bitmap, playerScore)
+    stage.update();
+
+    createjs.Ticker.setFPS(80);
+    createjs.Ticker.addEventListener("tick", tick);
+  }
+
+  function tick() {
+    if (playerScore.text < 1500) {
+      splat.x -= Math.random() * (4) + 1;
+    } else {
+      splat.x -= Math.random() * (10) + 5;
+    }
+    apple.x -= Math.random() * (4) + 1;
+    bitmap.x += 1;
+    move();
+    if (bitmap.x > 900) {
+      bitmap.x = -59;
+      bitmap.y = 250;
+    }
+    if (bitmap.x < -100) {
+      bitmap.x = -59;
+      bitmap.y;
+    }
+    if (bitmap.y > 600) {
+      bitmap.x = 0;
+      bitmap.y = 250;
+    }
+    if (bitmap.y < -200) {
+      bitmap.x = 0;
+      bitmap.y = 250;
+    }
+    if (splat.x > 1000) {
+      splat.x = 1000;
+      splat.y = Math.random() * (300) + 200;
+    }
+    if (splat.x < -20) {
+      splat.x = 1000;
+      splat.y = Math.random() * (300) + 200;
+    }
+    if (apple.x > 1000) {
+      apple.x = 1000;
+      apple.y = Math.random() * (300) + 200;
+    }
+    if (apple.x < -20) {
+      apple.x = 1000;
+      apple.y = Math.random() * (300) + 200;
+    }
+
+    if (splat.x < bitmap.x + bitWidth && splat.x + splatWidth > bitmap.x && splat.y < bitmap.y + bitHeight && splat.y + splatHeight > bitmap.y) {
+      splat.x = 1000;
+      splat.y = Math.random() * (300) + 200;
+      playerScore.text = parseInt(playerScore.text - 100);
+      stage.update();
+    }
+
+    if (apple.x < bitmap.x + bitWidth && apple.x + appleWidth > bitmap.x && apple.y < bitmap.y + bitHeight && apple.y + appleHeight > bitmap.y) {
+      apple.x = 1000;
+      apple.y = Math.random() * (300) + 200;
+      playerScore.text = parseInt(playerScore.text + 100);
+      stage.update();
+    }
+
+    if(playerScore.text > 2000) {
+      winner();
+    }
+
+    if(playerScore.text < -500) {
+      loser();
+    }
+  }
+
+  function winner() {
+    stage.removeChild(background, splat, apple, bitmap, playerScore);
+    stage.update();
+    var win = new createjs.Text('Winner', 'bold 60px Arial', '#f90014');
+    win.x = 450;
+    win.y = 450;
+    stage.addChild(backgroundWin, win);
     stage.update();
   }
 
-  if (apple.x < bitmap.x + bitWidth && apple.x + appleWidth > bitmap.x && apple.y < bitmap.y + bitHeight && apple.y + appleHeight > bitmap.y) {
-    apple.x = 1000;
-    apple.y = Math.random() * (300) + 200;
-    playerScore.text = parseInt(playerScore.text + 100);
+  function loser() {
+    stage.removeChild(splat, apple, bitmap, playerScore);
+    stage.update();
+    var lose = new createjs.Text('Try Again', 'bold 60px Arial', '#f90014');
+    lose.x = 400;
+    lose.y = 300;
+    stage.addChild(lose);
     stage.update();
   }
 
-  if(playerScore.text > 2000) {
-    winner();
+  function keyDownHandler(e) {
+    switch(e.keyCode) {
+      case KEYCODE_RIGHT: rightArrow = true; break;
+      case KEYCODE_LEFT: leftArrow = true; break;
+      case KEYCODE_UP: upArrow = true; break;
+      case KEYCODE_DOWN: downArrow = true; break;
+    }
   }
 
-  if(playerScore.text < -500) {
-    loser();
+  function keyUpHandler(e) {
+    switch(e.keyCode) {
+      case KEYCODE_RIGHT: rightArrow = false; break;
+      case KEYCODE_LEFT: leftArrow = false; break;
+      case KEYCODE_UP: upArrow = false; break;
+      case KEYCODE_DOWN: downArrow = false; break;
+    }
   }
-}
 
-function winner() {
-  stage.removeChild(background, splat, apple, bitmap, playerScore);
-  stage.update();
-  var win = new createjs.Text('Winner', 'bold 60px Arial', '#f90014');
-  win.x = 450;
-  win.y = 450;
-  stage.addChild(backgroundWin, win);
-  stage.update();
-}
-
-function loser() {
-  stage.removeChild(splat, apple, bitmap, playerScore);
-  stage.update();
-  var lose = new createjs.Text('Try Again', 'bold 60px Arial', '#f90014');
-  lose.x = 400;
-  lose.y = 300;
-  stage.addChild(lose);
-  stage.update();
-}
-
-function keyDownHandler(e) {
-  switch(e.keyCode) {
-    case KEYCODE_RIGHT: rightArrow = true; break;
-    case KEYCODE_LEFT: leftArrow = true; break;
-    case KEYCODE_UP: upArrow = true; break;
-    case KEYCODE_DOWN: downArrow = true; break;
+  function move() {
+    if(rightArrow) bitmap.x += 5;
+    if(leftArrow) bitmap.x -= 5;
+    if(upArrow) bitmap.y -= 5;
+    if(downArrow) bitmap.y += 5;
+    stage.update();
   }
-}
 
-function keyUpHandler(e) {
-  switch(e.keyCode) {
-    case KEYCODE_RIGHT: rightArrow = false; break;
-    case KEYCODE_LEFT: leftArrow = false; break;
-    case KEYCODE_UP: upArrow = false; break;
-    case KEYCODE_DOWN: downArrow = false; break;
-  }
-}
-
-function move() {
-  if(rightArrow) bitmap.x += 5;
-  if(leftArrow) bitmap.x -= 5;
-  if(upArrow) bitmap.y -= 5;
-  if(downArrow) bitmap.y += 5;
-  stage.update();
-}
-
-window.addEventListener("keydown", function(e) {
+  window.addEventListener("keydown", function(e) {
     // space and arrow keys
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-        e.preventDefault();
+      e.preventDefault();
     }
-}, false);
+  }, false);
+}
