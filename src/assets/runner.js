@@ -13,6 +13,10 @@ var splatImg;
 var splat;
 var splatWidth = 50;
 var splatHeight = 47;
+var goldStarImg;
+var goldStar;
+var goldStarWidth = 50;
+var goldStarHeight = 50;
 var appleImg;
 var apple;
 var appleWidth = 48;
@@ -21,6 +25,7 @@ var background;
 var backgroundImg;
 var backgroundWin;
 var backgroundWinImg;
+var superPower = false;
 
 var KEYCODE_UP = 38;
 var KEYCODE_LEFT = 37;
@@ -65,6 +70,12 @@ function runnerinit() {
   apple.x = 1000;
   apple.y = 300;
 
+  goldStarImg = new Image();
+  goldStarImg.src = "assets/goldstar.png";
+  goldStar = new createjs.Bitmap(goldStarImg);
+  goldStar.x = 1000;
+  goldStar.y = 300;
+
   backgroundImg = new Image();
   backgroundImg.src = "assets/background_pjmasks.jpg";
   background = new createjs.Bitmap(backgroundImg);
@@ -108,7 +119,7 @@ function addCatboy() {
   bitWidth = 107;
   bitHeight = 200;
 
-  stage.addChild(background, splat, apple, bitmap, playerScore)
+  stage.addChild(background, splat, apple, goldStar, bitmap, playerScore)
   stage.update();
 
   createjs.Ticker.setFPS(80);
@@ -123,7 +134,7 @@ function addOwlette() {
   bitWidth = 186;
   bitHeight = 200;
 
-  stage.addChild(background, splat, apple, bitmap, playerScore)
+  stage.addChild(background, splat, apple, goldStar, bitmap, playerScore)
   stage.update();
 
   createjs.Ticker.setFPS(80);
@@ -138,7 +149,7 @@ function addGekko() {
   bitWidth = 120;
   bitHeight = 200;
 
-  stage.addChild(background, splat, apple, bitmap, playerScore)
+  stage.addChild(background, splat, apple, goldStar, bitmap, playerScore)
   stage.update();
 
   createjs.Ticker.setFPS(80);
@@ -153,6 +164,11 @@ function tick() {
   }
   apple.x -= Math.random() * (4) + 1;
   bitmap.x += 1;
+  if (playerScore.text > 1400) {
+    goldStar.x -= Math.random() * (7) + 3;
+  } else {
+    goldStar.x += 100;
+  }
   move();
   if (bitmap.x > 900) {
     bitmap.x = -59;
@@ -186,11 +202,20 @@ function tick() {
     apple.x = 1000;
     apple.y = Math.random() * (300) + 200;
   }
+  if (goldStar.x > 1000) {
+  goldStar.x = 1000;
+  goldStar.y = Math.random() * (300) + 200;
+  }
+  if (goldStar.x < -20) {
+    goldStar.x = 1000;
+    goldStar.y = Math.random() * (300) + 200;
+  }
 
   if (splat.x < bitmap.x + bitWidth && splat.x + splatWidth > bitmap.x && splat.y < bitmap.y + bitHeight && splat.y + splatHeight > bitmap.y) {
     splat.x = 1000;
     splat.y = Math.random() * (300) + 200;
     playerScore.text = parseInt(playerScore.text - 100);
+    superPower = false;
     stage.update();
   }
 
@@ -201,7 +226,14 @@ function tick() {
     stage.update();
   }
 
-  if(playerScore.text > 2000) {
+  if (goldStar.x < bitmap.x + bitWidth && goldStar.x + goldStarWidth > bitmap.x && goldStar.y < bitmap.y + bitHeight && goldStar.y + goldStarHeight > bitmap.y) {
+    goldStar.x = 1000;
+    goldStar.y = Math.random() * (300) + 200;
+    superPower = true;
+    stage.update();
+  }
+
+  if(playerScore.text > 2500) {
     winner();
   }
 
@@ -211,7 +243,7 @@ function tick() {
 }
 
 function winner() {
-  stage.removeChild(background, splat, apple, bitmap, playerScore);
+  stage.removeChild(background, splat, apple, goldStar, bitmap, playerScore);
   stage.update();
   var win = new createjs.Text('Winner', 'bold 60px Arial', '#f90014');
   win.x = 450;
@@ -221,7 +253,7 @@ function winner() {
 }
 
 function loser() {
-  stage.removeChild(splat, apple, bitmap, playerScore);
+  stage.removeChild(splat, apple, goldStar, bitmap, playerScore);
   stage.update();
   var lose = new createjs.Text('Try Again', 'bold 60px Arial', '#f90014');
   lose.x = 400;
@@ -249,10 +281,17 @@ function keyUpHandler(e) {
 }
 
 function move() {
-  if(rightArrow) bitmap.x += 5;
-  if(leftArrow) bitmap.x -= 5;
-  if(upArrow) bitmap.y -= 5;
-  if(downArrow) bitmap.y += 5;
+  if (superPower === false) {
+    if(rightArrow) bitmap.x += 5;
+    if(leftArrow) bitmap.x -= 5;
+    if(upArrow) bitmap.y -= 5;
+    if(downArrow) bitmap.y += 5;
+  } else if ( superPower === true) {
+    if(rightArrow) bitmap.x += 10;
+    if(leftArrow) bitmap.x -= 10;
+    if(upArrow) bitmap.y -= 10;
+    if(downArrow) bitmap.y += 10;
+  }
   stage.update();
 }
 
