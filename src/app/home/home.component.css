@@ -1,3 +1,7 @@
 #runner:hover, #puzzle:hover, #tunnel:hover {
   border-style: dashed;
 }
+
+h1 {
+  color: red; 
+}

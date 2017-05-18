@@ -7,7 +7,7 @@
     "Nathaniel Meyer <nathanielimeyer@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/seacamjen/games-compilation",
   "ignore": [
     "**/.*",
     "node_modules",
