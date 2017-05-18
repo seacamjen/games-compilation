@@ -17,6 +17,44 @@ function webcrawlerInit() {
   stage.update();
   drawCircle();
 
+  var KEYCODE_UP = 38;
+  var KEYCODE_LEFT = 37
+  var KEYCODE_RIGHT = 39
+  var KEYCODE_DOWN = 40
+  var leftArrow = false
+  var rightArrow = false
+  var upArrow = false
+  var downArrow = false;
+
+  window.onkeyup = keyUpHandler;
+  window.onkeydown = keyDownHandler;
+
+  function keyDownHandler(e) {
+    switch(e.keyCode) {
+      case KEYCODE_RIGHT: rightArrow = true; break;
+      case KEYCODE_LEFT: leftArrow = true; break;
+      case KEYCODE_UP: upArrow = true; break;
+      case KEYCODE_DOWN: downArrow = true; break;
+    }
+  }
+
+  function keyUpHandler(e) {
+    switch(e.keyCode) {
+      case KEYCODE_RIGHT: rightArrow = false; break;
+      case KEYCODE_LEFT: leftArrow = false; break;
+      case KEYCODE_UP: upArrow = false; break;
+      case KEYCODE_DOWN: downArrow = false; break;
+    }
+  }
+
+  function move() {
+    if(rightArrow) ship.rotation += 5;
+    if(leftArrow)  ship.rotation -= 5;
+    // if(upArrow) ship.y -= 5;
+    // if(downArrow) ship.y += 5;
+    stage.update();
+  }
+
   function drawGrid() {
     g.clear();
     g.beginStroke("#FFF");
@@ -64,9 +102,24 @@ function webcrawlerInit() {
 
   function tick(event) {
     growRadius();
+    move();
+    // faceCenter();
     // ship.rotation++;
     stage.update();
   }
+
+  // function faceCenter() {
+  //   var angle = Math.atan2(450 - ship.y, 450 - ship.x );
+  //       angle = angle * (180/Math.PI);
+  //
+  //       if(angle < 0) {
+  //           angle = 360 - (-angle);
+  //       }
+  //
+  //       ship.rotation = 90 + angle;
+  //
+  //       stage.update();
+  // }
 
 
 }
