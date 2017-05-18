@@ -7,3 +7,22 @@ canvas {
   display: block;
   width: 1000px;
 }
+
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 40px;
+}
+
+img {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 30px;
+}
+
+h1, h2, p {
+  font-family: monospace;
+}

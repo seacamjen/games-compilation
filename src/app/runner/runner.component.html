@@ -4,3 +4,98 @@
 <div>
   <canvas id="demoCanvas" width="1000" height="600"></canvas>
 </div>
+<br><hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+      <div class="panel panel-success">
+        <div class="panel-body">
+          <h3 class="center">Controls</h3>
+          <div class="col-md-6">
+            <span class="glyphicon glyphicon-arrow-left"> - Move Left</span>
+            <span class="glyphicon glyphicon-arrow-right"> - Move Right</span>
+          </div>
+          <div class="col-md-6">
+            <span class="glyphicon glyphicon-arrow-up"> - Move Up</span>
+            <span class="glyphicon glyphicon-arrow-down"> - Move Down</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-md-offset-1">
+      <div class="panel panel-success">
+        <div class="panel-body">
+          <h3 class="center">Instructions</h3>
+          <div class="col-md-6">
+            <ul>
+              <li>Apples are worth 100 pts</li>
+              <li>Splats are worth -100 pts</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul>
+              <li>2000 pts to Win</li>
+              <li>-500 pts to Lose</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <h1 class="center">Tips Using Createjs</h1>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-danger">
+        <h2 class="center">Collisions</h2>
+        <p>
+          Collisions are an important part of games when you want to have multiple objects interact in any way.
+          You must have the width and height of an object so that you can calculate when an object hits another. Referencing the code below: each object is determined as a rectangle by determining its x and y values and then from those points addings its height and width.
+        </p>
+        <img src="./assets/images/Collision.png" alt="Code Snippet of Collision" />
+      </div>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-danger">
+        <h2 class="center">Image to Canvas</h2>
+        <p>
+          Importing an image seemed complicated at first because of the multiple steps it took to get it onto the canvas. First an Image must be instantiated and then assigning the src to that image. That image is then changed into a Bitmap which is then able to be placed onto the canvas. The x and y coordinates shown below are used to add a starting position.
+        </p>
+        <img src="./assets/images/importImage.png" alt="Code Snippet of image import" />
+      </div>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-danger">
+        <h2 class="center">Text to Canvas</h2>
+        <p>
+          Importing text is simple compared to the image (as seen above). You only need to set a variable to a new createjs.Text with the three attributes of: 1 the string you are entering, 2 the font and style of the font, 3 the color of the text. The x and y coordinates shown below are used to add a starting position.
+        </p>
+        <img src="./assets/images/importText.png" alt="Code Snippet of text import" />
+      </div>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-danger">
+        <h2 class="center">Movement</h2>
+        <p>
+          Movement includes several steps to be able to use the arrow keys in conjunction with the object (Bitmap) that has been placed on the canvas.
+          First values must be set for each of the keys. They are specific and must be defined as seen below.
+        </p>
+        <img src="./assets/images/arrowValues.png" alt="Code Snippet of text import" />
+        <p>
+          With in the initializing of the canvas the pressing and releasing of the keys must be defined within the window. As seen in the code below onkeyup and onkeydown are assigned to a Handler that will be defined next.
+        </p>
+        <img src="./assets/images/keyHandler.png" alt="Code Snippet of text import" />
+        <p>
+          Finally the handlers are defined for when a key is pressed. The keys are set to true if the key is pressed down and false when the key is released.
+          The move function is then defined to show what will happen when those keys are pressed. In the code below you can see that when the right arrow is pressed the bitmap (object) will move at a rate of positive 5 pixels. This is where you can invert the keyboard if you want to allow your user to decided to flip the controls.
+        </p>
+        <img src="./assets/images/moveFunctions.png" alt="Code Snippet of text import" />
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<hr>
